@@ -1,0 +1,7 @@
+node_modules
+public
+tmp
+.env
+package-lock.json
+database/development.sqlite
+database/testing.sqlite

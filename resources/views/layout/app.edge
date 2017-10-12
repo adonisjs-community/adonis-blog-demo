@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{-- Meta Information --}}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+
+  {{-- Title --}}
+  <title>{{ title }} | Adonis</title>
+
+  {{-- CSS --}}
+  {{ css('/css/app.css') }}
+</head>
+<body>
+  {{--
+    Include a partial into the view
+    ref: http://edge.adonisjs.com/docs/partials
+    --}}
+  @include('layout._header')
+
+  <div class="container">
+    {{--
+      Display the section content
+      ref: http://edge.adonisjs.com/docs/layouts#_basic_example
+      --}}
+    @!section('content')
+  </div>
+
+  {{-- Scripts --}}
+  {{ script('/js/app.js') }}
+</body>
+</html>

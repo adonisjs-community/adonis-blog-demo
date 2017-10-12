@@ -1,0 +1,24 @@
+@layout('layout.app')
+
+@section('content')
+  @set('title', 'Blog Demo')
+  <div class="jumbotron ">
+    <h1 class="display-3">Adonis Framework</h1>
+    <p class="lead">MVC Framework for Node.js to write webapps with less code.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="http://dev.adonisjs.com" role="button">Learn More</a>
+    </p>
+  </div>
+
+  {{--
+    Looping over all posts.
+
+    ref: http://edge.adonisjs.com/docs/iteration
+    --}}
+  @each(post in posts, include = 'posts._post')
+  @else
+    @component('components.alert', { type: 'info' })
+      There's no post available!
+    @endcomponent
+  @endeach
+@endsection

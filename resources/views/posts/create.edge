@@ -1,0 +1,27 @@
+@layout('layout.app')
+
+@section('content')
+  @set('title', 'Create a post')
+  <div class="card">
+    <div class="card-body">
+
+      {{--
+        We are here checking if the key 'error' is in the session.
+        If it is it means that our validation fails.
+
+        ref: http://dev.adonisjs.com/docs/4.0/sessions#_view_helpers
+        ref: http://edge.adonisjs.com/docs/conditionals#_if
+        --}}
+      @if(flashMessage('error'))
+        @component('components.alert', { type: 'danger', dismissible: true })
+          {{ flashMessage('error') }}
+        @endcomponent
+      @endif
+
+      <form action="/posts" method="POST">
+        @include('posts._form')
+      </form>
+
+    </div>
+  </div>
+@endsection

@@ -1,0 +1,23 @@
+{{--
+  AdonisJs provides CSRF Protection by default.
+  This mean that we need to send a csrf token for every POST, PUT or DELETE request.
+
+  ref: http://dev.adonisjs.com/docs/4.0/csrf
+  --}}
+{{ csrfField() }}
+
+{{-- Title Field --}}
+<div class="form-group">
+  <label for="title">Title</label>
+  <input class="form-control" id="title" type="text" name="title" placeholder="Title" value="{{ old('title', post.title || '') }}" autofocus>
+  {{ elIf('<small class="form-text">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
+</div>
+
+{{-- Body Field --}}
+<div class="form-group">
+  <label for="body">Body</label>
+  <textarea class="form-control" id="body" name="body" rows="30">{{ old('body', post.body || '') }}</textarea>
+  {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
+</div>
+
+<button class="btn btn-primary" type="submit">Save</button>

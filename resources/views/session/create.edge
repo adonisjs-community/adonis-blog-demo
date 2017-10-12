@@ -1,0 +1,48 @@
+@layout('layout.app')
+
+@section('content')
+  @set('title', 'Login')
+
+  <div class="card">
+    <div class="card-body">
+
+      {{--
+        We are here checking if the key 'error' is in the session.
+        If it is it means that our validation fails and credentials are incorect.
+
+        ref: http://dev.adonisjs.com/docs/4.0/sessions#_view_helpers
+        ref: http://edge.adonisjs.com/docs/conditionals#_if
+        --}}
+      @if(flashMessage('error'))
+        @component('components.alert', { type: 'danger', dismissible: true })
+          {{ flashMessage('error') }}
+        @endcomponent
+      @endif
+
+      <form action="/login" method="POST">
+        {{--
+          AdonisJs provides CSRF Protection by default.
+          This mean that we need to send a csrf token for every POST, PUT or DELETE request.
+
+          ref: http://dev.adonisjs.com/docs/4.0/csrf
+          --}}
+        {{ csrfField() }}
+
+        {{-- Username Field --}}
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input class="form-control" id="username" type="text" name="username" placeholder="Username" value="{{ old('username', '') }}" autofocus>
+        </div>
+
+        {{-- Password Field --}}
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" id="password" type="password" placeholder="Password" name="password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+
+    </div>
+  </div>
+@endsection

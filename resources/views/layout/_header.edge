@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    {{-- Brand --}}
+    <a class="navbar-brand" href="/">
+      <img src="/images/adonis.png" width="30" height="30" alt="Adonis Starter Pack">
+    </a>
+
+    {{-- Hamburger Button --}}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {{-- Navigation --}}
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbar">
+      <ul class="navbar-nav">
+        {{--
+          This tag let us know if the current user is logged in or not.
+
+          ref: http://dev.adonisjs.com/docs/4.0/views#_loggedin
+          ref: http://dev.adonisjs.com/docs/4.0/authentication#_loggedin
+          --}}
+        @loggedIn
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/create">Create a post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Sign Up</a>
+          </li>
+        @endloggedIn
+      </ul>
+    </div>
+  </div>
+</nav>
