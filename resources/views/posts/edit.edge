@@ -19,7 +19,7 @@
       @endif
 
       <form action="/posts/{{ post.id }}?_method=PUT" method="POST">
-        @include('posts._form')
+        @include('posts.partials.form')
       </form>
 
     </div>

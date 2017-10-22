@@ -1,2 +1,3 @@
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "fonts";
+@import './bootstrap/variables';
+@import '~bootstrap/scss/bootstrap';
+@import './bootstrap/reboot';

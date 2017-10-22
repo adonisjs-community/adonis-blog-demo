@@ -15,7 +15,7 @@
 
     ref: http://edge.adonisjs.com/docs/iteration
     --}}
-  @each(post in posts, include = 'posts._post')
+  @each(post in posts, include = 'posts.partials.post-card')
   @else
     @component('components.alert', { type: 'info' })
       There's no post available!

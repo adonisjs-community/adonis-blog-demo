@@ -10,8 +10,8 @@
     <div class="card-header d-flex justify-content-end">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <a class="nav-link" href="/posts/{{ post.id }}/edit">
-            Edit
+          <a class="btn btn-dark d-flex align-items-center" href="/posts/{{ post.id }}/edit">
+            @!component('icon.edit', { size: '25px' })
           </a>
         </li>
       </ul>

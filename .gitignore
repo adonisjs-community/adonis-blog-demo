@@ -3,5 +3,5 @@ public
 tmp
 .env
 package-lock.json
-database/development.sqlite
-database/testing.sqlite
+database/*.sqlite
+mix-manifest.json

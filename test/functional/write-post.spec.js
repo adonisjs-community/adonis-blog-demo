@@ -1,7 +1,7 @@
 'use strict'
 
 const Factory = use('Factory')
-const { test, trait } = use('Test/Suite')('Create Post')
+const { test, trait } = use('Test/Suite')('Write Post')
 
 trait('Auth/Client')
 trait('Test/Browser')
