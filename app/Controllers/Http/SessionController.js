@@ -60,7 +60,7 @@ class SessionController {
     return response.redirect('/')
   }
 
-  async destroy ({ auth, response }) {
+  async delete ({ auth, response }) {
     /**
      * Logout the user.
      *

@@ -122,7 +122,16 @@ class PostController {
     return response.redirect('/')
   }
 
-  async delete () {
+  async delete ({ params, response }) {
+    /**
+     * Finding the post and deleting it
+     *
+     * ref: http://dev.adonisjs.com/docs/4.0/lucid#_deletes
+     */
+    const post = await Post.findOrFail(params.id)
+    await post.delete()
+
+    return response.redirect('/')
   }
 }
 

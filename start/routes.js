@@ -30,10 +30,11 @@ Route.group(() => {
 // Those routes should be only accessible
 // when you are logged in
 Route.group(() => {
-  Route.get('logout', 'SessionController.destroy')
+  Route.get('logout', 'SessionController.delete')
 
   Route.get('posts/create', 'PostController.create')
   Route.post('posts', 'PostController.store')
   Route.get('posts/:id/edit', 'PostController.edit')
+  Route.get('posts/:id/delete', 'PostController.delete')
   Route.put('posts/:id', 'PostController.update')
 }).middleware(['auth'])
