@@ -20,7 +20,7 @@ Factory.blueprint('App/Models/User', (faker, index, data) => {
     password: 'secret',
   }
 
-  return { ...defaultValue, ...data }
+  return Object.assign(defaultValue, data)
 })
 
 Factory.blueprint('App/Models/Post', (faker) => {

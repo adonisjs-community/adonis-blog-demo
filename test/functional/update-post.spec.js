@@ -41,17 +41,20 @@ test('we can update a post', async ({ browser, assert }) => {
 
   // When we fill and send the form
   await page
+    .clear('[name="title"]')
+    .clear('[name="body"]')
     .type('[name="title"]', 'Post Edited')
     .type('[name="body"]', 'New Body')
     .submitForm('form')
     .waitForNavigation()
 
   // We expect to be again on the homepage
-  await page.assertPath('/')
+  await page
+    .assertPath('/')
 
   // and to see the title of our post
   await page.assertHas('Post Edited')
 
   // and to not see the title of our old post
-  assert.notInclude(await page.getText(), post.title)
-})
+  assert.notInclude(await page.getText(), post.body)
+}).timeout(0)
