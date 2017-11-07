@@ -1,31 +1,25 @@
-# Adonis fullstack application
+# Adonis Blog Demo :triangular_ruler:
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+This repo contains an example application of the Adonis Framework. You must checkout the source code or the API docs on official website to learn more.
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+<br />
+<hr />
+<br />
 
-## Setup
+<img src="http://res.cloudinary.com/adonisjs/image/upload/q_100/v1497112678/adonis-purple_pzkmzt.svg" width="200px" align="right" hspace="30px" vspace="140px">
 
-Use the adonis command to install the blueprint
+## What's in the box?
 
-```bash
-adonis new yardstick
-```
+1. Authentication System
+2. Blogging System
+3. API Testing
+4. Browser Testing
+5. Assets management
 
-or manually clone the repo and then run `npm install`.
+## What's the roadmap?
 
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+1. Passwordless authentication
+2. Frontend framework to increase the UX
+3. ACL
+4. WYSIWYG editor
+5. File uploaded with processing (image)
