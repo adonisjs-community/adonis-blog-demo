@@ -13,7 +13,7 @@
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^4.0.6",
-    "@adonisjs/auth": "^2.0.7",
+    "@adonisjs/auth": "^2.0.10",
     "@adonisjs/bodyparser": "^1.0.7",
     "@adonisjs/cors": "^1.0.1",
     "@adonisjs/fold": "^4.0.4",
@@ -30,9 +30,9 @@
   "devDependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^3.2.1",
+    "laravel-mix": "^1.6.1",
     "popper.js": "^1.12.5",
-    "sqlite3": "^3.1.13",
-    "laravel-mix": "^1.5.1"
+    "sqlite3": "^3.1.13"
   },
   "autoload": {
     "App": "./app"
