@@ -56,5 +56,5 @@ test('we can update a post', async ({ browser, assert }) => {
   await page.assertHas('Post Edited')
 
   // and to not see the title of our old post
-  assert.notInclude(await page.getText(), post.body)
+  assert.notInclude(await page.getText(), post.title)
 }).timeout(0)
