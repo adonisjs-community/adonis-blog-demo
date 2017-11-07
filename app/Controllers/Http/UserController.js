@@ -8,7 +8,7 @@ class UserController {
     /**
      * Render the view 'user.create'.
      *
-     * ref: http://dev.adonisjs.com/docs/4.0/views
+     * ref: http://adonisjs.com/docs/4.0/views
      */
     return view.render('user.create')
   }
@@ -17,14 +17,14 @@ class UserController {
     /**
      * Getting needed parameters.
      *
-     * ref: http://dev.adonisjs.com/docs/4.0/request#_only
+     * ref: http://adonisjs.com/docs/4.0/request#_only
      */
     const data = request.only(['username', 'email', 'password', 'password_confirmation'])
 
     /**
      * Validating our data.
      *
-     * ref: http://dev.adonisjs.com/docs/4.0/validator
+     * ref: http://adonisjs.com/docs/4.0/validator
      */
     const validation = await validate(data, {
       username: 'required|unique:users',
@@ -51,7 +51,7 @@ class UserController {
     /**
      * Creating a new user into the database.
      *
-     * ref: http://dev.adonisjs.com/docs/4.0/lucid#_create
+     * ref: http://adonisjs.com/docs/4.0/lucid#_create
      */
     await User.create(data)
 

@@ -5,7 +5,7 @@ class RedirectIfAuthenticated {
     /**
      * Verify if we are logged in.
      *
-     * ref: http://dev.adonisjs.com/docs/4.0/authentication#_check
+     * ref: http://adonisjs.com/docs/4.0/authentication#_check
      */
     try {
       await auth.check()
