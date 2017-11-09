@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test --timeout=0",
-    "build:dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "build:prod": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "build:dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -31,7 +31,9 @@
     "jquery": "^3.2.1",
     "laravel-mix": "^1.6.1",
     "popper.js": "^1.12.5",
-    "sqlite3": "^3.1.13"
+    "sqlite3": "^3.1.13",
+    "webpack": "^3.8.1",
+    "cross-env": "^5.1.1"
   },
   "autoload": {
     "App": "./app"
