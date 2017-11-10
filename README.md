@@ -27,7 +27,7 @@ This repo contains an example application of the Adonis Framework. You must chec
 
 ## How to run
 
-- Run `adonis install` to install all dependencies
+- Run `npm install` to install all dependencies
 - Make a copy of `.env.example` rename it to `.env`
 - Run `adonis key:generate` to generate the secret key
 - Run `adonis migration:run` to setup the database
