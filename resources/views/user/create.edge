@@ -52,7 +52,7 @@
         {{-- Confirm Password Field --}}
         <div class="form-group">
           <label for="password_confirmation">Password Confirmation</label>
-          <input class="form-control" id="password" type="password" placeholder="Password Confirmation" name="password_confirmation">
+          <input class="form-control" id="password_confirmation" type="password" placeholder="Password Confirmation" name="password_confirmation">
           {{ elIf('<small class="form-text">$self</small>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
         </div>
 
