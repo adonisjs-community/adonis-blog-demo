@@ -9,7 +9,7 @@
 | routes for different URL's and bind Controller actions to them.
 |
 | A complete guide on routing is available here.
-| http://adonisjs.com/guides/routing
+| http://adonisjs.com/docs/4.0/routing
 |
 */
 
