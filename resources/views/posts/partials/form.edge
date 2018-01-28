@@ -16,8 +16,11 @@
 {{-- Body Field --}}
 <div class="form-group">
   <label for="body">Body</label>
-  <textarea class="form-control" id="body" name="body" rows="30">{{ old('body', post.body || '') }}</textarea>
+  <textarea class="form-control ckeditor" id="body" name="body" rows="30">{{ old('body', post.body || '') }}</textarea>
   {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
 </div>
 
 <button class="btn btn-primary" type="submit">Save</button>
+
+{{-- CKEditor via CDN --}}
+<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
