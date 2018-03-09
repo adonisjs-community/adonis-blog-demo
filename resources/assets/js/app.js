@@ -1,3 +1,6 @@
-window.$ = window.jQuery = require('jquery')
-window.Popper = require('popper.js')
-require('bootstrap')
+import jQuery from 'jquery'
+import Popper from 'popper.js'
+import 'bootstrap'
+
+window.$ = window.jQuery = jQuery
+window.Popper = Popper

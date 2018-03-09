@@ -5,3 +5,6 @@ tmp
 package-lock.json
 database/*.sqlite
 mix-manifest.json
+.cache
+yarn-error.log
+yarn.lock
