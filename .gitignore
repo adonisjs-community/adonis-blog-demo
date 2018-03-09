@@ -1,10 +1,14 @@
 node_modules
-public
 tmp
 .env
 package-lock.json
 database/*.sqlite
-mix-manifest.json
 .cache
 yarn-error.log
 yarn.lock
+
+# Don't push the public folder
+public
+
+# Keep only images
+!public/img
