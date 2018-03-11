@@ -1,14 +1,14 @@
 'use strict'
 
 const User = use('App/Models/User')
-const { validate } = use('Validator')
+const { validateAll } = use('Validator')
 
 class UserController {
   create ({ view }) {
     /**
      * Render the view 'user.create'.
      *
-     * ref: http://adonisjs.com/docs/4.0/views
+     * ref: http://adonisjs.com/docs/4.1/views
      */
     return view.render('user.create')
   }
@@ -17,16 +17,16 @@ class UserController {
     /**
      * Getting needed parameters.
      *
-     * ref: http://adonisjs.com/docs/4.0/request#_only
+     * ref: http://adonisjs.com/docs/4.1/request#_only
      */
     const data = request.only(['username', 'email', 'password', 'password_confirmation'])
 
     /**
      * Validating our data.
      *
-     * ref: http://adonisjs.com/docs/4.0/validator
+     * ref: http://adonisjs.com/docs/4.1/validator
      */
-    const validation = await validate(data, {
+    const validation = await validateAll(data, {
       username: 'required|unique:users',
       email: 'required|email|unique:users',
       password: 'required',
@@ -51,7 +51,7 @@ class UserController {
     /**
      * Creating a new user into the database.
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_create
+     * ref: http://adonisjs.com/docs/4.1/lucid#_create
      */
     await User.create(data)
 

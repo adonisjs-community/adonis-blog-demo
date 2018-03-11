@@ -25,7 +25,7 @@ class SessionController {
      * Wrapping the authentication in order to
      * handle errors when authentication fail.
      *
-     * ref: http://adonisjs.com/docs/4.0/authentication#_attempt_uid_password
+     * ref: http://adonisjs.com/docs/4.1/authentication#_attempt_uid_password
      */
     try {
       await auth.attempt(username, password)
@@ -34,14 +34,14 @@ class SessionController {
        * Add flash message to the session with the content of
        * the form except password field.
        *
-       * ref: http://adonisjs.com/docs/4.0/sessions#_flash_messages
+       * ref: http://adonisjs.com/docs/4.1/sessions#_flash_messages
        */
       session.flashExcept(['password'])
 
       /**
        * Add a custom object to the session store.
        *
-       * ref: http://adonisjs.com/docs/4.0/sessions#_flash
+       * ref: http://adonisjs.com/docs/4.1/sessions#_flash
        */
       session.flash({ error: 'We cannot find any account with these credentials.' })
 
@@ -49,7 +49,7 @@ class SessionController {
        * Since the authentication failed we redirect
        * our user back to the form.
        *
-       * ref: http://adonisjs.com/docs/4.0/response#_redirects
+       * ref: http://adonisjs.com/docs/4.1/response#_redirects
        */
       return response.redirect('login')
     }
@@ -64,7 +64,7 @@ class SessionController {
     /**
      * Logout the user.
      *
-     * ref: http://adonisjs.com/docs/4.0/authentication#_logout
+     * ref: http://adonisjs.com/docs/4.1/authentication#_logout
      */
     await auth.logout()
 

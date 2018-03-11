@@ -25,7 +25,7 @@ class ExceptionHandler {
       return response.redirect('/')
     }
 
-    response.status(error.status).send(error.message)
+    return super.handle(...arguments)
   }
 
   /**

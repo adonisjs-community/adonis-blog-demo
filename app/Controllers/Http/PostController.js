@@ -1,14 +1,14 @@
 'use strict'
 
 const Post = use('App/Models/Post')
-const { validate } = use('Validator')
+const { validateAll } = use('Validator')
 
 class PostController {
   async index ({ view }) {
     /**
      * Fetch all posts inside our database.
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_all
+     * ref: http://adonisjs.com/docs/4.1/lucid#_all
      */
     const posts = await Post.all()
 
@@ -16,7 +16,7 @@ class PostController {
      * Render the view 'posts.index'
      * with the posts fetched as data.
      *
-     * ref: http://adonisjs.com/docs/4.0/views
+     * ref: http://adonisjs.com/docs/4.1/views
      */
     return view.render('posts.index', { posts: posts.toJSON() })
   }
@@ -25,7 +25,7 @@ class PostController {
     /**
      * Render the view 'posts.create'.
      *
-     * ref: http://adonisjs.com/docs/4.0/views
+     * ref: http://adonisjs.com/docs/4.1/views
      */
     return view.render('posts.create')
   }
@@ -34,16 +34,16 @@ class PostController {
     /**
      * Getting needed parameters.
      *
-     * ref: http://adonisjs.com/docs/4.0/request#_only
+     * ref: http://adonisjs.com/docs/4.1/request#_only
      */
     const data = request.only(['title', 'body'])
 
     /**
      * Validating our data.
      *
-     * ref: http://adonisjs.com/docs/4.0/validator
+     * ref: http://adonisjs.com/docs/4.1/validator
      */
-    const validation = await validate(data, {
+    const validation = await validateAll(data, {
       title: 'required',
       body: 'required',
     })
@@ -62,7 +62,7 @@ class PostController {
     /**
      * Creating a new post into the database.
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_create
+     * ref: http://adonisjs.com/docs/4.1/lucid#_create
      */
     await Post.create(data)
 
@@ -73,7 +73,7 @@ class PostController {
     /**
      * Finding the post.
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_findorfail
+     * ref: http://adonisjs.com/docs/4.1/lucid#_findorfail
      */
     const post = await Post.findOrFail(params.id)
 
@@ -84,16 +84,16 @@ class PostController {
     /**
      * Getting needed parameters.
      *
-     * ref: http://adonisjs.com/docs/4.0/request#_only
+     * ref: http://adonisjs.com/docs/4.1/request#_only
      */
     const data = request.only(['title', 'body'])
 
     /**
      * Validating our data.
      *
-     * ref: http://adonisjs.com/docs/4.0/validator
+     * ref: http://adonisjs.com/docs/4.1/validator
      */
-    const validation = await validate(data, {
+    const validation = await validateAll(data, {
       title: 'required',
       body: 'required',
     })
@@ -113,7 +113,7 @@ class PostController {
      * Finding the post and updating fields on it
      * before saving it to the database.
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_inserts_updates
+     * ref: http://adonisjs.com/docs/4.1/lucid#_inserts_updates
      */
     const post = await Post.findOrFail(params.id)
     post.merge(data)
@@ -126,7 +126,7 @@ class PostController {
     /**
      * Finding the post and deleting it
      *
-     * ref: http://adonisjs.com/docs/4.0/lucid#_deletes
+     * ref: http://adonisjs.com/docs/4.1/lucid#_deletes
      */
     const post = await Post.findOrFail(params.id)
     await post.delete()
