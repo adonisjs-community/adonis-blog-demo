@@ -8,7 +8,7 @@
     "test": "node ace test --timeout=0",
     "build": "adonis bundle",
     "build:dev": "adonis bundle --watch",
-    "build:prod": "adibus bundle --production"
+    "build:prod": "adonis bundle --production"
   },
   "license": "UNLICENSED",
   "private": true,
