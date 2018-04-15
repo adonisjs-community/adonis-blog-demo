@@ -16,7 +16,9 @@
 const Route = use('Route')
 
 Route.get('/', 'PostController.index')
-
+Route.get('/chat', async ({view}) => {
+  return view.render('layout.chat')
+})
 // Those routes should be only accessible
 // when you are not logged in
 Route.group(() => {

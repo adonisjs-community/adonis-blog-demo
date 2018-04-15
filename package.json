@@ -26,6 +26,8 @@
     "@adonisjs/validator": "^5.0.3",
     "@adonisjs/vow": "^1.0.12",
     "@adonisjs/vow-browser": "^1.0.4",
+    "@adonisjs/websocket": "^1.0.9",
+    "@adonisjs/websocket-client": "^1.0.9",
     "adonis-bundler": "^1.0.0"
   },
   "devDependencies": {

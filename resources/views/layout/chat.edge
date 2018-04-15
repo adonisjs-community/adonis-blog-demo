@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700');
+
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: #f3f3f3;
+    color: #646464;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .chat-container {
+    height: calc(100vh);
+    width: 680px;
+    margin: 0 auto;
+    padding: 100px 0 120px 0;
+  }
+
+  .chat-wrapper {
+    height: 100%;
+    background: #fff;
+    box-shadow: 1px 1px 16px 7px #e8e8e8;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .messages {
+    flex: 1;
+    padding: 80px 0 40px 0;
+    overflow: scroll;
+  }
+
+  .input-wrapper {
+    height: 60px;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    font-size: 16px;
+    padding: 7px 40px;
+    border: none;
+  }
+
+  .messages .message {
+    padding: 0 40px;
+    margin-bottom: 20px;
+  }
+
+  .messages .message h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .messages .message h3 span {
+    color: #999;
+    font-style: italic;
+  }
+
+  .onboard {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .onboard input {
+    font-size: 32px;
+    border: none;
+    padding: 0 40px;
+  }
+
+  .header {
+    padding: 10px 40px;
+    position: fixed;
+    width: 680px;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+  }
+
+  .header h2 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header h2 span:first-child {
+    flex: 1;
+  }
+
+  .connection-status {
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .connection-status.connected {
+    background-color: green;
+  }
+
+  .connected-users {
+    color: #999;
+    font-style: italic;
+  }
+  </style>
+  {{ script('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js') }}
+  {{ script('https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js') }}
+  {{ script('https://unpkg.com/jquery@3.3.1/dist/jquery.js') }}
+</head>
+<body>
+
+  @set('username', request.input('username'))
+
+  <div class="chat-container">
+    <div class="chat-wrapper">
+      @if(username)
+      <div class="header">
+        <h2>
+          <span>Hello {{ username }}!</span>
+          <span class="connected-users"></span>
+          <span class="connection-status"></span>
+        </h2>
+      </div>
+      <div id="messages" class="messages">
+      </div>
+      <div class="input-wrapper">
+        <input type="text" id="message" placeholder="Enter message" autofocus=1>
+      </div>
+      @else
+      <div class="onboard">
+        <form action="/chat" method="GET">
+          <input type="text" id="name" name="username" placeholder="Enter your name" autofocus=1>
+        </form>
+      </div>
+      @endif
+    </div>
+  </div>
+
+  <script>
+    window.username = '{{ username }}'
+    $(function () {
+      if (window.username) {
+        console.log(1234);
+        startChat()
+      }
+    })
+
+    function startChat () {
+      ws = adonis.Ws().connect()
+
+      ws.on('open', () => {
+        $('.connection-status').addClass('connected')
+        console.log('open');
+        subscribeToChannel()
+      })
+
+      ws.on('error', () => {
+        $('.connection-status').removeClass('connected')
+      })
+    }
+    function subscribeToChannel () {
+      const chat = ws.subscribe('chat')
+      chat.on('ready', () => {
+        console.log('hi');
+        chat.emit('message', {username: 'System', body: 'Welcome!'})
+      })
+      chat.on('message', (message) => {
+        $('#messages').append('<div class="message"><h3> '+message.username+' says:</h3> <p>'+message.body+'</p> </div>')
+      })
+    }
+    $('#message').keyup(function (e) {
+      if (e.which === 13) {
+        e.preventDefault()
+
+        const message = $(this).val()
+        $(this).val('')
+
+        ws.getSubscription('chat').emit('message', {
+          username: window.username,
+          body: message
+        })
+        return
+      }
+    })
+  </script>
+
+  </body>
+  </html>
