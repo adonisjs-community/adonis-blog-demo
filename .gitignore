@@ -1,11 +1,8 @@
 node_modules
 tmp
 .env
-package-lock.json
 database/*.sqlite
 .cache
-yarn-error.log
-yarn.lock
 
 # Don't push the public folder
 public
