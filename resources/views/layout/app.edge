@@ -12,14 +12,14 @@
   {{-- CSS --}}
   {{ style('/app.css') }}
 </head>
-<body>
+<body class="bg-grey-lighter">
   {{--
     Include a partial into the view
     ref: http://edge.adonisjs.com/docs/partials
     --}}
   @include('layout.partials.header')
 
-  <div class="container">
+  <div class="container mx-auto px-4 mt-8">
     {{--
       Display the section content
       ref: http://edge.adonisjs.com/docs/layouts#_basic_example
