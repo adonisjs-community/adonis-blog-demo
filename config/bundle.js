@@ -9,6 +9,9 @@ module.exports = {
   | Autodiscover
   |--------------------------------------------------------------------------
   |
+  | Defines if the bundler need to discover your assets
+  | inside specified folder defined bellow.
+  |
   */
   autodiscover: true,
 
@@ -17,6 +20,8 @@ module.exports = {
   | OutDir
   |--------------------------------------------------------------------------
   |
+  | Defines where the bundler need to dump bundled assets.
+  |
   */
   outDir: Helpers.publicPath(),
 
@@ -24,6 +29,8 @@ module.exports = {
   |--------------------------------------------------------------------------
   | Discovery settings
   |--------------------------------------------------------------------------
+  |
+  | Defines the pattern to use for auto-discovering assets.
   |
   */
   discover: {
@@ -35,6 +42,9 @@ module.exports = {
   |--------------------------------------------------------------------------
   | Custom bundles
   |--------------------------------------------------------------------------
+  |
+  | Defines custom bundle that doesn't go insto the auto-discovering
+  | pattern.
   |
   */
   customBundles: [
