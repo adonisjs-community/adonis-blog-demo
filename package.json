@@ -26,9 +26,11 @@
     "@adonisjs/validator": "^5.0.3",
     "@adonisjs/vow": "^1.0.15",
     "@adonisjs/vow-browser": "^1.0.5",
-    "adonis-bundler": "^1.0.1"
+    "adonis-bundler": "^1.0.1",
+    "tailwindcss": "^0.6.1"
   },
   "devDependencies": {
+    "less": "^3.0.4",
     "sqlite3": "^4.0.0"
   },
   "autoload": {
