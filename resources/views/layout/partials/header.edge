@@ -1,40 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-  <div class="container">
-    {{-- Brand --}}
-    <a class="navbar-brand" href="/">
-      <img src="/img/adonis.png" width="30" height="30" alt="Adonis Starter Pack">
+<nav class="flex items-center justify-between flex-wrap text-white bg-violet p-6">
+  {{-- Logo --}}
+  <div class="flex items-center flex-no-shrink mr-6">
+    <a href="/">
+      <svg width="120px" height="33px" viewBox="0 0 120 33" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g transform="translate(0 .5)" fill="none" fill-rule="evenodd">
+          <path d="M20 2.236L5.618 31h28.764L20 2.236z" stroke="#fff" stroke-width="2"/>
+          <path fill="#fff" d="M12 2l12 24H0M49.392 21.6H45.92l4.336-11.2h2.976l4.448 11.2h-3.568l-.72-1.872h-3.328l-.672 1.872zm2.368-7.648l-1.168 3.152h2.24l-1.072-3.152zM65.792 21.6h-5.264V10.4h5.264c3.264 0 5.696 2.512 5.696 5.6 0 3.104-2.432 5.6-5.696 5.6zm-.464-8.32h-1.44v5.44h1.44c1.728 0 2.8-1.072 2.8-2.72 0-1.664-1.072-2.736-2.8-2.72zm15.04 8.496c-3.776 0-6.048-2.656-6.048-5.776 0-3.12 2.272-5.776 6.048-5.776 3.776 0 6.048 2.656 6.048 5.776 0 3.12-2.272 5.776-6.048 5.776zm0-2.88c1.712 0 2.688-1.328 2.688-2.896 0-1.568-.976-2.896-2.688-2.896-1.712 0-2.688 1.328-2.688 2.896 0 1.568.976 2.896 2.688 2.896zM96.912 21.6h2.608V10.4h-3.36v5.248L92.432 10.4h-2.624v11.2h3.36v-5.344l3.744 5.344zm9.92-11.2h-3.36v11.2h3.36V10.4zm3.264 7.872c.336 2.256 2.096 3.504 4.688 3.504 2.432 0 4.576-1.088 4.576-3.472-.048-1.584-.832-2.672-3.328-3.536l-1.248-.432c-.688-.24-.912-.528-.912-.848 0-.48.512-.704 1.056-.704.8 0 1.12.496 1.344 1.12l2.688-.768c-.64-1.872-1.984-2.912-4.096-2.912-2.448 0-4.272 1.392-4.272 3.552.032 2.384 2.752 3.104 3.296 3.28l1.264.48c.8.256.944.608.944.88 0 .544-.544.8-1.312.8-1.104 0-1.76-.544-1.984-1.568l-2.704.624z"/>
+        </g>
+      </svg>
     </a>
+  </div>
 
-    {{-- Hamburger Button --}}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  {{-- Hamburger --}}
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
     </button>
+  </div>
 
-    {{-- Navigation --}}
-    <div class="collapse navbar-collapse justify-content-end" id="navbar">
-      <ul class="navbar-nav">
-        {{--
-          This tag let us know if the current user is logged in or not.
+  {{-- Navigation --}}
+  <div class="w-full block lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow">
+      {{--
+        This tag let us know if the current user is logged in or not.
 
-          ref: http://adonisjs.com/docs/4.0/views#_loggedin
-          ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
-          --}}
-        @loggedIn
-          <li class="nav-item">
-            <a class="nav-link" href="/posts/create">Create a post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        @else
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">Sign Up</a>
-          </li>
-        @endloggedIn
-      </ul>
+        ref: http://adonisjs.com/docs/4.1/views#_loggedin
+        ref: http://adonisjs.com/docs/4.1/authentication#_loggedin
+      --}}
+      @loggedIn
+        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/posts/create">Create a post</a>
+        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/logout">Logout</a>
+      @else
+        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/login">Sign In</a>
+        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/register">Sign Up</a>
+      @endloggedIn
     </div>
   </div>
 </nav>
