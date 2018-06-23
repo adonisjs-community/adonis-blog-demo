@@ -1,12 +1,14 @@
 'use strict'
 
+const BaseExceptionHandler = use('BaseExceptionHandler')
+
 /**
  * This class handles all exceptions thrown during
  * the HTTP request lifecycle.
  *
  * @class ExceptionHandler
  */
-class ExceptionHandler {
+class ExceptionHandler extends BaseExceptionHandler {
   /**
    * Handle exception thrown during the HTTP lifecycle
    *
