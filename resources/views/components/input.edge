@@ -6,5 +6,8 @@
   @if(placeholder)
     placeholder="{{ placeholder }}"
   @endif
+  @if(value)
+    value="{{ value }}"
+  @endif
   {{ required ? 'required' : null }}
 >

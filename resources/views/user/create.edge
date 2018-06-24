@@ -30,8 +30,8 @@
 
       {{-- Username Field --}}
       <div class="mb-8">
-        @!component('components.label', text = 'Username', related = 'username')
-        @!component('components.input', name = 'username', required = true)
+        @!component('components.label', { text: 'Username', related: 'username' })
+        @!component('components.input', { name: 'username', value: old('username'), required: true })
         <div>
           {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('username'), hasErrorFor('username')) }}
         </div>
@@ -39,8 +39,8 @@
 
       {{-- Email Field --}}
       <div class="mb-8">
-        @!component('components.label', text = 'Email', related = 'email')
-        @!component('components.input', name = 'email', type = 'email', required = true)
+        @!component('components.label', { text: 'Email', related: 'email' })
+        @!component('components.input', { name: 'email', type: 'email', value: old('email'), required: true })
         <div>
           {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('email'), hasErrorFor('email')) }}
         </div>
@@ -48,8 +48,8 @@
 
       {{-- Password Field --}}
       <div class="mb-8">
-        @!component('components.label', text = 'Password', related = 'password')
-        @!component('components.input', name = 'password', type = 'password', required = true)
+        @!component('components.label', { text: 'Password', related: 'password' })
+        @!component('components.input', { name: 'password', type: 'password', required: true })
         <div>
           {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('password'), hasErrorFor('password')) }}
         </div>
@@ -57,8 +57,8 @@
 
       {{-- Password Confirmation Field --}}
       <div class="mb-8">
-        @!component('components.label', text = 'Password Confirmation<', related = 'password_confirmation')
-        @!component('components.input', name = 'password_confirmation', type = 'password', required = true)
+        @!component('components.label', { text: 'Password Confirmation', related: 'password_confirmation' })
+        @!component('components.input', { name: 'password_confirmation', type: 'password', required: true })
         <div>
           {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
         </div>

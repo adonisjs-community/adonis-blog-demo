@@ -51,7 +51,7 @@ test('we need to provide a valid email', async ({ assert, browser }) => {
   await page.assertValue('[name="email"]', 'romain.lanz')
 
   // And we expect to see a form error
-  await page.assertExists('small.form-text')
+  await page.assertExists('small.text-xs')
 })
 
 test('we need to provide a identical password', async ({ assert, browser }) => {
@@ -77,7 +77,7 @@ test('we need to provide a identical password', async ({ assert, browser }) => {
   await page.assertValue('[name="email"]', 'romain.lanz@slynova.ch')
 
   // And we expect to see a form error
-  await page.assertExists('small.form-text')
+  await page.assertExists('small.text-xs')
 })
 
 test('we cannot have two same username', async ({ assert, browser }) => {
@@ -106,5 +106,5 @@ test('we cannot have two same username', async ({ assert, browser }) => {
   await page.assertValue('[name="email"]', user.email)
 
   // And we expect to see a form error
-  await page.assertExists('small.form-text')
+  await page.assertExists('small.text-xs')
 })

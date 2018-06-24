@@ -23,7 +23,7 @@ test('should display an error when crendentials are incorect', async ({ browser 
   await page.assertPath('/login')
 
   // And we expect to see an alert message
-  await page.assertExists('div.alert.alert-danger')
+  await page.assertExists('div[role="alert"]')
 
   // And to see the username filled
   await page.assertValue('[name="username"]', 'romain.lanz')

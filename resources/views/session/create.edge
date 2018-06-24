@@ -30,8 +30,8 @@
 
       {{-- Username Field --}}
       <div class="mb-8">
-        @!component('components.label', text = 'Username', related = 'username')
-        @!component('components.input', name = 'username', required = true)
+        @!component('components.label', { text: 'Username', related: 'username' })
+        @!component('components.input', { name: 'username', value: old('username'), required: true })
       </div>
 
       {{-- Password Field --}}
