@@ -1,32 +1,27 @@
-<div class="card mt-3">
+<article class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-  {{--
-    This tag let us know if the current user is logged in or not.
+  <header class="flex justify-between mb-4 pb-4 border-b">
+    <h4>{{ post.title }}</h4>
 
-    ref: http://adonisjs.com/docs/4.0/views#_loggedin
-    ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
-    --}}
-  @loggedIn
-    <div class="card-header d-flex justify-content-end">
-      <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="btn btn-dark d-flex align-items-center" href="/posts/{{ post.id }}/edit">
-            @!component('icon.edit', { size: '25px' })
-          </a>
-        </li>
-        <li class="nav-item ml-2">
-          <a class="btn btn-dark d-flex align-items-center trash" href="/posts/{{ post.id }}/delete">
-            @!component('icon.trash', { size: '25px' })
-          </a>
-        </li>
-      </ul>
-    </div>
-  @endloggedIn
+    {{--
+      This tag let us know if the current user is logged in or not.
 
-  <div class="card-body">
-    <h4 class="card-title">{{ post.title }}</h4>
-    <p class="card-text">
-      {{{ post.body }}}
-    </p>
-  </div>
-</div>
+      ref: http://adonisjs.com/docs/4.0/views#_loggedin
+      ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
+      --}}
+    @loggedIn
+      <div class="flex">
+        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-info-light mr-4" href="/posts/{{ post.id }}/edit">
+          @!component('icon.edit', { size: '25px' })
+        </a>
+        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-danger-light" href="/posts/{{ post.id }}/delete">
+          @!component('icon.trash', { size: '25px' })
+        </a>
+      </div>
+    @endloggedIn
+  </header>
+
+  <p>
+    {{{ post.body }}}
+  </p>
+</article>
