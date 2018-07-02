@@ -7,17 +7,23 @@
 {{ csrfField() }}
 
 {{-- Title Field --}}
-<div class="form-group">
-  <label for="title">Title</label>
-  <input class="form-control" id="title" type="text" name="title" placeholder="Title" value="{{ old('title', post.title || '') }}" autofocus>
-  {{ elIf('<small class="form-text">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
+<div class="mb-8">
+  @!component('components.label', { text: 'Title', related: 'title' })
+  @!component('components.input', { name: 'title', value: old('title', post.title || ''), required: true })
+  <div>
+    {{ elIf('<small class="text-xs">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
+  </div>
 </div>
 
 {{-- Body Field --}}
-<div class="form-group">
-  <label for="body">Body</label>
-  <textarea class="form-control" id="body" name="body" rows="30">{{ old('body', post.body || '') }}</textarea>
-  {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
+<div class="mb-8">
+  @!component('components.label', { text: 'Body', related: 'body' })
+  @!component('components.textarea', { name: 'body', value: old('body', post.body || '') })
+  <div>
+    {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
+  </div>
 </div>
 
-<button class="btn btn-primary" type="submit">Save</button>
+<button class="bg-brand hover:bg-brand-dark text-white py-2 px-4 rounded">
+  Save
+</button>

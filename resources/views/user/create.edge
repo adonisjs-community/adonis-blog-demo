@@ -4,20 +4,20 @@
   @set('title', 'Register')
 
   <div class="flex flex-col items-center">
-    {{--
-      We are here checking if the key 'error' is in the session.
-      If it is it means that our validation fails and credentials are incorect.
-
-      ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
-      ref: http://edge.adonisjs.com/docs/conditionals#_if
-      --}}
-    @if(flashMessage('error'))
-      @component('components.alert', { color: 'danger' })
-        <p class="text-sm">{{ flashMessage('error') }}</p>
-      @endcomponent
-    @endif
-
     <form class="bg-white w-3/5 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/register" method="POST">
+      {{--
+        We are here checking if the key 'error' is in the session.
+        If it is it means that our validation fails and credentials are incorect.
+
+        ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
+        ref: http://edge.adonisjs.com/docs/conditionals#_if
+      --}}
+      @if(flashMessage('error'))
+        @component('components.alert', { color: 'danger' })
+          <p class="text-sm">{{ flashMessage('error') }}</p>
+        @endcomponent
+      @endif
+
       <h1 class="text-x2 mb-16">Register</h1>
 
       {{--
