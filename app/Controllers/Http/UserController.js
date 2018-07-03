@@ -13,7 +13,7 @@ class UserController {
     return view.render('user.create')
   }
 
-  async store ({ session, request, response }) {
+  async store ({ auth, session, request, response }) {
     /**
      * Getting needed parameters.
      *
@@ -53,7 +53,10 @@ class UserController {
      *
      * ref: http://adonisjs.com/docs/4.1/lucid#_create
      */
-    await User.create(data)
+    const user = await User.create(data)
+
+    // Authenticate the user
+    await auth.login(user)
 
     return response.redirect('/')
   }
