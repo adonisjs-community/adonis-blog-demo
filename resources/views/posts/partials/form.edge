@@ -11,7 +11,7 @@
   @!component('components.label', { text: 'Title', related: 'title' })
   @!component('components.input', { name: 'title', value: old('title', post.title || ''), required: true })
   <div>
-    {{ elIf('<small class="text-xs">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
+    {{ elIf('<small class="form-text">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
   </div>
 </div>
 
