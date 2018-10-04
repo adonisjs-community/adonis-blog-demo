@@ -23,7 +23,7 @@ test('we can delete a post', async ({ assert, browser }) => {
 
   // When we click on the trash icon
   await page
-    .click('.trash')
+    .click('.bg-danger-light')
     .waitForNavigation()
 
   // We expect to be again on the homepage
