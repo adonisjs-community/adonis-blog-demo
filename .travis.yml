@@ -4,6 +4,6 @@ node_js:
   - 8.0.0
 sudo: false
 install:
-  - npm install
+  - npm ci
 before_script:
   - cp -a .env.example .env
