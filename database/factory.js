@@ -25,8 +25,8 @@ Factory.blueprint('App/Models/User', (faker, index, data) => {
 
 Factory.blueprint('App/Models/Post', (faker) => {
   return {
-    title: faker.sentence(),
-    body: faker.paragraph(),
+    title: faker.sentence({ words: 5 }),
+    body: faker.paragraph({ sentences: 1 }),
     user_id: async () => {
       return (await Factory.model('App/Models/User').create()).id
     }
