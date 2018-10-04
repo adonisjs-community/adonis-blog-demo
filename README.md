@@ -2,6 +2,8 @@
 
 This repo contains an example application of the Adonis Framework. You must checkout the source code or the API docs on official website to learn more.
 
+[![Build Status][travis-image]][travis-url]
+
 <br />
 <hr />
 <br />
@@ -33,3 +35,7 @@ This repo contains an example application of the Adonis Framework. You must chec
 - Run `adonis migration:run` to setup the database
 - Run `npm run build:dev` to build static assets (preferably in another terminal tab/window)
 - Run `adonis serve --dev` to run the application
+
+
+[travis-image]: https://img.shields.io/travis/adonisjs/adonis-blog-demo/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/adonisjs/adonis-blog-demo
