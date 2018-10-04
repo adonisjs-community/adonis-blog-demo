@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - node
+  - 8.0.0
+sudo: false
+install:
+  - npm install
