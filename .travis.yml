@@ -5,3 +5,5 @@ node_js:
 sudo: false
 install:
   - npm install
+before_script:
+  - cp -a .env.example .env
