@@ -13,25 +13,25 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@adonisjs/ace": "^5.0.2",
-    "@adonisjs/auth": "^3.0.5",
-    "@adonisjs/bodyparser": "^2.0.3",
-    "@adonisjs/cors": "^1.0.6",
-    "@adonisjs/fold": "^4.0.8",
-    "@adonisjs/framework": "^5.0.8",
-    "@adonisjs/ignitor": "^2.0.6",
-    "@adonisjs/lucid": "^5.0.4",
-    "@adonisjs/session": "^1.0.25",
-    "@adonisjs/shield": "^1.0.6",
-    "@adonisjs/validator": "^5.0.3",
-    "@adonisjs/vow": "^1.0.15",
-    "@adonisjs/vow-browser": "^1.0.5",
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.0.7",
+    "@adonisjs/bodyparser": "^2.0.5",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.1.3",
+    "@adonisjs/session": "^1.0.27",
+    "@adonisjs/shield": "^1.0.8",
+    "@adonisjs/validator": "^5.0.4",
+    "@adonisjs/vow": "^1.0.17",
+    "@adonisjs/vow-browser": "git+https://github.com/adonisjs/vow-browser.git#develop",
     "adonis-bundler": "^1.0.1",
-    "tailwindcss": "^0.6.1"
+    "tailwindcss": "^0.6.6"
   },
   "devDependencies": {
-    "less": "^3.0.4",
-    "sqlite3": "^4.0.1"
+    "less": "^3.8.1",
+    "sqlite3": "^4.0.2"
   },
   "autoload": {
     "App": "./app"
