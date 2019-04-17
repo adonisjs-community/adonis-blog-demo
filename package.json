@@ -25,7 +25,7 @@
     "@adonisjs/shield": "^1.0.6",
     "@adonisjs/validator": "^5.0.3",
     "@adonisjs/vow": "^1.0.15",
-    "@adonisjs/vow-browser": "^1.0.5",
+    "@adonisjs/vow-browser": "^1.0.6",
     "adonis-bundler": "^1.0.1",
     "tailwindcss": "^0.6.1"
   },
