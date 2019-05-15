@@ -9,3 +9,4 @@ public
 
 # Keep only images
 !public/img
+.idea/
