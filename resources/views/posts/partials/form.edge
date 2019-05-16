@@ -19,6 +19,7 @@
 <div class="mb-8">
   @!component('components.label', { text: 'Body', related: 'body' })
   @!component('components.textarea', { name: 'body', value: old('body', post.body || '') })
+  @!component('components.ckeditor', { value: old('body', post.body || '') })
   <div>
     {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
   </div>

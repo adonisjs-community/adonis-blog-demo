@@ -5,8 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name=viewport content="width=device-width, initial-scale=1">
-
-  {{-- Title --}}
+    <script src="./node_modules/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+    {{-- Title --}}
   <title>{{ title }} | Adonis</title>
 
   {{-- CSS --}}
