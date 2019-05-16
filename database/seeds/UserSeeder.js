@@ -15,14 +15,16 @@ const Factory = use('Factory')
 
 class UserSeeder {
   async run () {
-    const user = await Factory
-  .model('App/Models/User')
-  .create({
-    email: "admin@admin.com",
-    username: "admin"
-  })
-  console.log("this user created");
-  console.log(this.user);
+
+      const role = await Factory.model('Adonis/Acl/Role').create({"slug": "admin", "name": "Administrator"})
+
+      const user = await Factory.model('App/Models/User').create({
+          username: 'admin',
+          email: 'admin@test.com',
+          password: 'secret',
+      });
+      await user.roles().attach([role.id])
+
   }
 }
 

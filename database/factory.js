@@ -32,3 +32,12 @@ Factory.blueprint('App/Models/Post', (faker) => {
     }
   }
 })
+
+Factory.blueprint('Adonis/Acl/Role', (faker, index, data) => {
+  const defaultValue = {
+    slug: 'administrator',
+    name: 'Administrator'
+  }
+
+  return Object.assign(defaultValue, data)
+})
