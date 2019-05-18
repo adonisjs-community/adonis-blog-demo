@@ -2,6 +2,7 @@
 
 const Post = use('App/Models/Post')
 const { validateAll } = use('Validator')
+const Role = use('Adonis/Acl/Role')
 
 class PostController {
   async index ({ view }) {
@@ -21,7 +22,7 @@ class PostController {
     return view.render('posts.index', { posts: posts.toJSON() })
   }
 
-  create ({ view }) {
+ async create ({ view }) {
     /**
      * Render the view 'posts.create'.
      *
@@ -31,6 +32,7 @@ class PostController {
   }
 
   async store ({ session, request, response }) {
+
     /**
      * Getting needed parameters.
      *
