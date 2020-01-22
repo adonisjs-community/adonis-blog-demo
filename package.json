@@ -8,12 +8,14 @@
     "test": "node ace test --timeout=0",
     "build": "adonis bundle",
     "build:dev": "adonis bundle --watch",
-    "build:prod": "adonis bundle --production"
+    "build:prod": "adonis bundle --production",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@adonisjs/ace": "^5.0.2",
+    "@adonisjs/ace": "^6.0.0",
     "@adonisjs/auth": "^3.0.5",
     "@adonisjs/bodyparser": "^2.0.3",
     "@adonisjs/cors": "^1.0.6",
@@ -27,7 +29,8 @@
     "@adonisjs/vow": "^1.0.15",
     "@adonisjs/vow-browser": "^1.0.6",
     "adonis-bundler": "^1.0.1",
-    "tailwindcss": "^0.6.1"
+    "tailwindcss": "^0.6.1",
+    "snyk": "^1.279.0"
   },
   "devDependencies": {
     "less": "^3.0.4",
@@ -35,5 +38,6 @@
   },
   "autoload": {
     "App": "./app"
-  }
+  },
+  "snyk": true
 }
