@@ -3,69 +3,88 @@
 @section('content')
   @set('title', 'Register')
 
-  <div class="flex flex-col items-center">
-    <form class="bg-white w-3/5 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/register" method="POST">
-      {{--
-        We are here checking if the key 'error' is in the session.
-        If it is it means that our validation fails and credentials are incorect.
+  <div class="max-w-2xl mx-auto">
+    @component('components.panel')
+      <form action="/register" method="POST">
+        {{--
+          We are here checking if the key 'error' is in the session.
+          If it is it means that our validation fails and credentials are incorect.
 
-        ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
-        ref: http://edge.adonisjs.com/docs/conditionals#_if
-      --}}
-      @if(flashMessage('error'))
-        @component('components.alert', { color: 'danger' })
-          <p class="text-sm">{{ flashMessage('error') }}</p>
-        @endcomponent
-      @endif
-
-      <h1 class="text-x2 mb-16">Register</h1>
-
-      {{--
-        AdonisJs provides CSRF Protection by default.
-        This mean that we need to send a csrf token for every POST, PUT or DELETE request.
-
-        ref: http://adonisjs.com/docs/4.1/csrf
+          ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
+          ref: http://edge.adonisjs.com/docs/conditionals#_if
         --}}
-      {{ csrfField() }}
+        @if(flashMessage('error'))
+          <div class="mb-4">
+            @component('components.alert', { type: 'danger', color: 'red' })
+              {{ flashMessage('error') }}
+            @endcomponent
+          </div>
+        @endif
 
-      {{-- Username Field --}}
-      <div class="mb-8">
-        @!component('components.label', { text: 'Username', related: 'username' })
-        @!component('components.input', { name: 'username', value: old('username'), required: true })
+        {{--
+          AdonisJs provides CSRF Protection by default.
+          This mean that we need to send a csrf token for every POST, PUT or DELETE request.
+
+          ref: http://adonisjs.com/docs/4.1/csrf
+          --}}
+        {{ csrfField() }}
+
         <div>
-          {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('username'), hasErrorFor('username')) }}
+          <h3 class="text-lg font-medium leading-6 text-gray-900">
+            Register
+          </h3>
         </div>
-      </div>
 
-      {{-- Email Field --}}
-      <div class="mb-8">
-        @!component('components.label', { text: 'Email', related: 'email' })
-        @!component('components.input', { name: 'email', type: 'email', value: old('email'), required: true })
-        <div>
-          {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('email'), hasErrorFor('email')) }}
+        <div class="mt-6 sm:mt-5">
+          {{-- Username Field --}}
+          <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', { text: 'Username', related: 'username' })
+
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', { name: 'username', value: old('username'), required: true })
+              {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('username'), hasErrorFor('username')) }}
+            </div>
+          </div>
+
+          {{-- Email Field --}}
+          <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', { text: 'Email', related: 'email' })
+
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', { name: 'email', type: 'email', value: old('email'), required: true })
+              {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('email'), hasErrorFor('email')) }}
+            </div>
+          </div>
+
+          {{-- Password Field --}}
+          <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', { text: 'Password', related: 'password' })
+
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', { name: 'password', type: 'password', required: true })
+              {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('password'), hasErrorFor('password')) }}
+            </div>
+          </div>
+
+          {{-- Password Confirmation Field --}}
+          <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', { text: 'Password Confirmation', related: 'password_confirmation' })
+
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', { name: 'password_confirmation', type: 'password', required: true })
+              {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
+            </div>
+          </div>
+
+          <div class="pt-5 mt-8 border-t border-gray-200">
+            <div class="flex justify-end">
+              <button class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                Register
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {{-- Password Field --}}
-      <div class="mb-8">
-        @!component('components.label', { text: 'Password', related: 'password' })
-        @!component('components.input', { name: 'password', type: 'password', required: true })
-        <div>
-          {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('password'), hasErrorFor('password')) }}
-        </div>
-      </div>
-
-      {{-- Password Confirmation Field --}}
-      <div class="mb-8">
-        @!component('components.label', { text: 'Password Confirmation', related: 'password_confirmation' })
-        @!component('components.input', { name: 'password_confirmation', type: 'password', required: true })
-        <div>
-          {{ elIf('<small class="text-xs text-danger">$self</small>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
-        </div>
-      </div>
-
-      <button class="bg-brand hover:bg-brand-dark text-white py-2 px-4 rounded">
-        Register
-      </button>
+      </form>
+    @endcomponent
   </div>
 @endsection

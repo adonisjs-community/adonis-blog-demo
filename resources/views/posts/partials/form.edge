@@ -6,24 +6,41 @@
   --}}
 {{ csrfField() }}
 
-{{-- Title Field --}}
-<div class="mb-8">
-  @!component('components.label', { text: 'Title', related: 'title' })
-  @!component('components.input', { name: 'title', value: old('title', post.title || ''), required: true })
-  <div>
-    {{ elIf('<small class="text-xs">$self</small>', getErrorFor('title'), hasErrorFor('title')) }}
-  </div>
+<div>
+  <h3 class="text-lg font-medium leading-6 text-gray-900">
+    New Post
+  </h3>
+  <p class="max-w-2xl mt-1 text-sm leading-5 text-gray-500">
+    Feel free to write whatever you want.
+  </p>
 </div>
 
-{{-- Body Field --}}
-<div class="mb-8">
-  @!component('components.label', { text: 'Body', related: 'body' })
-  @!component('components.textarea', { name: 'body', value: old('body', post.body || '') })
-  <div>
-    {{ elIf('<small class="form-text">$self</small>', getErrorFor('body'), hasErrorFor('body')) }}
+<div class="mt-6 sm:mt-5">
+  {{-- Title Field --}}
+  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+    @!component('components.label', { text: 'Title', related: 'title' })
+
+    <div class="mt-1 sm:mt-0 sm:col-span-2">
+      @!component('components.input', { name: 'title', value: old('title', post.title || ''), required: true })
+      {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('title'), hasErrorFor('title')) }}
+    </div>
+  </div>
+
+  {{-- Body Field --}}
+  <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+    @!component('components.label', { text: 'Body', related: 'body' })
+
+    <div class="mt-1 sm:mt-0 sm:col-span-2">
+      @!component('components.textarea', { name: 'body', value: old('body', post.body || '') })
+      {{ elIf('<p class="mt-2 text-sm text-red-600">$self</p>', getErrorFor('body'), hasErrorFor('body')) }}
+    </div>
+  </div>
+
+  <div class="pt-5 mt-8 border-t border-gray-200">
+    <div class="flex justify-end">
+      <button class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+        Save
+      </button>
+    </div>
   </div>
 </div>
-
-<button class="bg-brand hover:bg-brand-dark text-white py-2 px-4 rounded">
-  Save
-</button>

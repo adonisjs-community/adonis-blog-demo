@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test --timeout=0",
-    "build": "postcss -o public/app.css resources/css/app.css"
+    "build": "postcss -o public/app.css resources/css/app.css",
+    "build:prod": "cross-env NODE_ENV=production postcss -o public/app.css resources/css/app.css"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -23,12 +24,18 @@
     "@adonisjs/shield": "^1.0.6",
     "@adonisjs/validator": "^5.0.3",
     "@adonisjs/vow": "^1.0.15",
-    "@adonisjs/vow-browser": "^1.0.6",
-    "tailwindcss": "^0.6.1"
+    "@adonisjs/vow-browser": "^1.0.6"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@tailwindcss/ui": "^0.1.3",
+    "autoprefixer": "^9.7.6",
+    "cross-env": "^7.0.2",
     "postcss-cli": "^7.1.0",
-    "sqlite3": "^4.0.1"
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
+    "sqlite3": "^4.0.1",
+    "tailwindcss": "^1.2.0"
   },
   "autoload": {
     "App": "./app"

@@ -1,39 +1,85 @@
-<nav class="flex items-center justify-between flex-wrap text-white bg-brand p-6">
-  {{-- Logo --}}
-  <div class="flex items-center flex-no-shrink mr-6">
-    <a href="/">
-      <svg width="120px" height="33px" viewBox="0 0 120 33" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g transform="translate(0 .5)" fill="none" fill-rule="evenodd">
-          <path d="M20 2.236L5.618 31h28.764L20 2.236z" stroke="#fff" stroke-width="2"/>
-          <path fill="#fff" d="M12 2l12 24H0M49.392 21.6H45.92l4.336-11.2h2.976l4.448 11.2h-3.568l-.72-1.872h-3.328l-.672 1.872zm2.368-7.648l-1.168 3.152h2.24l-1.072-3.152zM65.792 21.6h-5.264V10.4h5.264c3.264 0 5.696 2.512 5.696 5.6 0 3.104-2.432 5.6-5.696 5.6zm-.464-8.32h-1.44v5.44h1.44c1.728 0 2.8-1.072 2.8-2.72 0-1.664-1.072-2.736-2.8-2.72zm15.04 8.496c-3.776 0-6.048-2.656-6.048-5.776 0-3.12 2.272-5.776 6.048-5.776 3.776 0 6.048 2.656 6.048 5.776 0 3.12-2.272 5.776-6.048 5.776zm0-2.88c1.712 0 2.688-1.328 2.688-2.896 0-1.568-.976-2.896-2.688-2.896-1.712 0-2.688 1.328-2.688 2.896 0 1.568.976 2.896 2.688 2.896zM96.912 21.6h2.608V10.4h-3.36v5.248L92.432 10.4h-2.624v11.2h3.36v-5.344l3.744 5.344zm9.92-11.2h-3.36v11.2h3.36V10.4zm3.264 7.872c.336 2.256 2.096 3.504 4.688 3.504 2.432 0 4.576-1.088 4.576-3.472-.048-1.584-.832-2.672-3.328-3.536l-1.248-.432c-.688-.24-.912-.528-.912-.848 0-.48.512-.704 1.056-.704.8 0 1.12.496 1.344 1.12l2.688-.768c-.64-1.872-1.984-2.912-4.096-2.912-2.448 0-4.272 1.392-4.272 3.552.032 2.384 2.752 3.104 3.296 3.28l1.264.48c.8.256.944.608.944.88 0 .544-.544.8-1.312.8-1.104 0-1.76-.544-1.984-1.568l-2.704.624z"/>
-        </g>
+<div class="relative overflow-hidden">
+  {{-- Dots Background --}}
+  <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
+    <div class="relative h-full max-w-screen-xl mx-auto text-">
+      <svg class="absolute transform right-full translate-y-1/4 translate-x-1/4 lg:translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
       </svg>
-    </a>
-  </div>
-
-  {{-- Hamburger --}}
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-    </button>
-  </div>
-
-  {{-- Navigation --}}
-  <div class="w-full block lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      {{--
-        This tag let us know if the current user is logged in or not.
-
-        ref: http://adonisjs.com/docs/4.1/views#_loggedin
-        ref: http://adonisjs.com/docs/4.1/authentication#_loggedin
-      --}}
-      @loggedIn
-        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/posts/create">Create a post</a>
-        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/logout">Logout</a>
-      @else
-        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/login">Sign In</a>
-        <a class="block mt-4 lg:inline-block lg:mt-0 hover:text-grey-dark mr-4" href="/register">Sign Up</a>
-      @endloggedIn
+      <svg class="absolute transform left-full -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
+      </svg>
     </div>
   </div>
-</nav>
+
+  <div class="relative pt-6 pb-12 sm:pb-16 md:pb-20">
+    <div class="max-w-screen-xl px-4 mx-auto sm:px-6">
+      <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+        <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+          <div class="flex items-center justify-between w-full md:w-auto">
+            {{-- Logo / Main Link --}}
+            <a href="/">
+              <svg width="112" height="33" viewBox="0 0 121 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40.99 31.525c0-.083-.024-.154-.048-.237-.024-.082-.035-.153-.07-.224-.013-.024-.013-.047-.025-.071L26.668 6.44c-.011-.024-.035-.036-.047-.048-.047-.07-.094-.118-.153-.177a1.104 1.104 0 00-.178-.153c-.023-.012-.035-.036-.059-.048-.047-.023-.094-.023-.142-.047a.823.823 0 00-.224-.07c-.07-.013-.142-.013-.225-.013-.07 0-.141 0-.224.012-.083.012-.154.047-.236.083-.048.023-.095.023-.142.047-.024.012-.036.036-.047.047a.622.622 0 00-.178.142c-.059.06-.106.106-.153.177-.012.024-.036.036-.047.06l-2.423 4.182L16.377.58c-.012-.024-.036-.035-.047-.047-.048-.071-.095-.118-.154-.178a1.1 1.1 0 00-.177-.153c-.024-.012-.036-.036-.06-.047-.047-.024-.094-.024-.141-.048a.824.824 0 00-.225-.07C15.503 0 15.431 0 15.361 0c-.071 0-.142 0-.225.012-.083.012-.153.047-.236.083-.047.023-.095.023-.142.047-.024.012-.035.035-.047.047-.071.047-.118.095-.178.154-.059.059-.106.106-.153.177-.012.024-.036.035-.047.059L.153 25.132c-.011.024-.011.048-.023.071a.711.711 0 00-.07.225c-.025.082-.048.153-.048.236 0 .024-.012.047-.012.071 0 .047.024.095.024.142.011.082.023.165.047.236.024.071.059.13.094.2.036.072.071.13.13.19.06.06.119.106.178.165.035.036.07.071.106.095.024.012.06.024.083.035.035.012.059.024.094.036.13.047.272.083.402.083h11.615l-2.363 4.1c-.012.023-.012.047-.024.07a.71.71 0 00-.07.225c-.024.083-.048.154-.048.236 0 .024-.012.048-.012.071 0 .047.024.095.024.142.012.083.023.166.047.236.024.071.06.13.095.201.035.071.07.13.13.19.059.058.118.106.177.165.035.035.07.07.106.094.024.012.06.024.083.036.035.011.059.023.094.035.13.047.272.083.402.083h28.358c.142 0 .272-.036.402-.083.035-.012.07-.024.095-.035.023-.012.059-.024.082-.036.047-.023.071-.07.107-.094a.593.593 0 00.177-.166c.047-.059.083-.118.13-.189.035-.059.07-.13.094-.2a1.69 1.69 0 00.048-.237.595.595 0 00.023-.142c.071-.059.06-.07.06-.094zM5.27 23.36L15.36 5.884l4.786 8.295-5.305 9.181H5.27zm10.28 5.86l1.335-2.327 2.044-3.545 3.261-5.624 2.044-3.545 1.395-2.422 10.09 17.464H15.55zM51.715 27.66c1.957 0 3.184-.81 3.94-2.037h.053v1.645h3.94V15.21h-3.94v1.644h-.052c-.757-1.226-1.984-2.036-3.94-2.036-3.132 0-5.716 2.193-5.716 6.42 0 4.228 2.584 6.42 5.715 6.42zm1.096-3.602c-1.566 0-2.766-1.096-2.766-2.819 0-1.722 1.2-2.818 2.766-2.818 1.592 0 2.793 1.096 2.793 2.818 0 1.723-1.2 2.819-2.793 2.819zM66.571 27.66c1.957 0 3.184-.81 3.94-2.037h.053v1.645h3.94V9h-3.94v7.855h-.052c-.757-1.226-1.984-2.036-3.94-2.036-3.132 0-5.716 2.193-5.716 6.42 0 4.228 2.584 6.42 5.715 6.42zm1.096-3.602c-1.566 0-2.766-1.096-2.766-2.819 0-1.722 1.2-2.818 2.766-2.818 1.592 0 2.793 1.096 2.793 2.818 0 1.723-1.2 2.819-2.793 2.819zM82.599 14.82c-3.889 0-6.76 2.557-6.76 6.42 0 3.862 2.871 6.42 6.76 6.42 3.914 0 6.785-2.558 6.785-6.42 0-3.863-2.871-6.42-6.785-6.42zm0 3.6c1.591 0 2.818 1.097 2.818 2.82 0 1.722-1.227 2.818-2.819 2.818-1.565 0-2.818-1.096-2.818-2.819 0-1.722 1.253-2.818 2.819-2.818zM98.54 14.82c-1.696 0-3.105.809-3.94 2.218h-.052V15.21h-3.863v12.057h3.941v-6.055c0-2.14.992-2.923 2.323-2.923 1.461 0 2.218.81 2.218 2.61v6.368h3.914v-7.464c0-3.445-1.879-4.984-4.54-4.984zM109.052 9.026h-4.227v3.967h4.227V9.026zm-4.071 18.242h3.941V15.21h-3.941v12.057zM115.406 27.66c3.21 0 5.324-1.201 5.324-4.072 0-2.036-1.096-3.001-2.923-3.68l-2.088-.783c-.6-.234-.913-.391-.913-.756 0-.314.183-.522.966-.522.965 0 2.296.365 3.575.887l1.096-3.184c-1.54-.496-3.001-.73-4.358-.73-3.471 0-5.167 1.435-5.167 3.914 0 1.8.965 2.975 2.949 3.732l2.113.835c.366.157.836.235.836.705 0 .391-.392.548-1.097.548-1.487 0-2.975-.627-4.279-1.383l-1.488 3.235c1.827.914 3.862 1.253 5.454 1.253z" fill="currentColor"></path>
+              </svg>
+            </a>
+
+            {{-- Hamburger Button --}}
+            <div class="flex items-center -mr-2 md:hidden">
+              <button type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {{-- Navigation Actions --}}
+        <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+          {{--
+            This tag let us know if the current user is logged in or not.
+
+            ref: http://adonisjs.com/docs/4.1/views#_loggedin
+            ref: http://adonisjs.com/docs/4.1/authentication#_loggedin
+          --}}
+          @loggedIn
+            <span class="inline-flex mr-4 rounded-md shadow">
+              <a href="/posts/create" class="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700">
+                Create Post
+              </a>
+            </span>
+            <span class="inline-flex rounded-md shadow">
+              <a href="/logout" class="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700">
+                Logout
+              </a>
+            </span>
+          @else
+            <span class="inline-flex mr-4 rounded-md shadow">
+              <a href="/login" class="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700">
+                Sign In
+              </a>
+            </span>
+            <span class="inline-flex rounded-md shadow">
+              <a href="/register" class="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700">
+                Sign Up
+              </a>
+            </span>
+          @endloggedIn
+        </div>
+      </nav>
+    </div>
+
+    {{-- Hero --}}
+    @include('layout.partials.hero')
+  </div>
+</div>

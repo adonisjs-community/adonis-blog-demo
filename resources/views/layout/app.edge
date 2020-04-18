@@ -9,19 +9,20 @@
   {{-- Title --}}
   <title>{{ title }} | Adonis</title>
 
+  {{-- Scripts --}}
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
   {{-- CSS --}}
   <link rel="stylesheet" href="/app.css">
 </head>
-<body class="bg-grey-lighter">
+<body class="bg-gray-50">
   {{--
     Include a partial into the view
     ref: http://edge.adonisjs.com/docs/partials
     --}}
   @include('layout.partials.header')
 
-  @include('layout.partials.jumbotron')
-
-  <div class="container px-4 mx-auto mt-8">
+  <div class="container px-4 mx-auto">
     {{--
       Display the section content
       ref: http://edge.adonisjs.com/docs/layouts#_basic_example

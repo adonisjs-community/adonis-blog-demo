@@ -1,27 +1,35 @@
-<article class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+  {{-- Illustration --}}
+  <div class="flex-shrink-0">
+    <img class="object-cover w-full h-48" src="https://source.unsplash.com/random?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+  </div>
 
-  <header class="flex justify-between mb-4 pb-4 border-b">
-    <h4>{{ post.title }}</h4>
+  {{-- Card Body --}}
+  <div class="flex flex-col justify-between flex-1 p-6 bg-white">
+    <a href="#" class="block">
+      <h3 class="mt-2 text-xl font-semibold leading-7 text-gray-900">
+        {{ post.title }}
+      </h3>
+      <p class="mt-3 text-base leading-6 text-gray-500">
+        {{{ truncate(post.body, 25, '...') }}}
+      </p>
+    </a>
+  </div>
 
-    {{--
-      This tag let us know if the current user is logged in or not.
+  {{--
+    This tag let us know if the current user is logged in or not.
 
-      ref: http://adonisjs.com/docs/4.0/views#_loggedin
-      ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
-      --}}
-    @loggedIn
-      <div class="flex">
-        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-info-light mr-4" href="/posts/{{ post.id }}/edit">
-          @!component('icon.edit', { size: '25px' })
-        </a>
-        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-danger-light" href="/posts/{{ post.id }}/delete">
-          @!component('icon.trash', { size: '25px' })
-        </a>
-      </div>
-    @endloggedIn
-  </header>
-
-  <p>
-    {{{ post.body }}}
-  </p>
-</article>
+    ref: http://adonisjs.com/docs/4.0/views#_loggedin
+    ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
+  --}}
+  @loggedIn
+    <div class="flex items-center justify-end m-6 mt-0">
+      <a href="/posts/{{ post.id }}/edit" class="mr-2 text-sm font-medium leading-5 text-blue-600 hover:underline">
+        Edit
+      </a>
+      <a href="/posts/{{ post.id }}/delete" class="text-sm font-medium leading-5 text-blue-600 hover:underline">
+        Delete
+      </a>
+    </div>
+  @endloggedIn
+</div>

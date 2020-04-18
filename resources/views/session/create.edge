@@ -3,46 +3,66 @@
 @section('content')
   @set('title', 'Login')
 
-  <div class="flex flex-col items-center">
-    <form class="bg-white w-3/5 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/login" method="POST">
-      {{--
-        We are here checking if the key 'error' is in the session.
-        If it is it means that our validation fails and credentials are incorect.
+  <div class="max-w-2xl mx-auto">
+    @component('components.panel')
+      <form action="/login" method="POST">
+        {{--
+          We are here checking if the key 'error' is in the session.
+          If it is it means that our validation fails and credentials are incorect.
 
-        ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
-        ref: http://edge.adonisjs.com/docs/conditionals#_if
-      --}}
-      @if(flashMessage('error'))
-        @component('components.alert', { color: 'danger' })
-          <p class="text-sm">{{ flashMessage('error') }}</p>
-        @endcomponent
-      @endif
+          ref: http://adonisjs.com/docs/4.1/sessions#_view_helpers
+          ref: http://edge.adonisjs.com/docs/conditionals#_if
+        --}}
+        @if(flashMessage('error'))
+          <div class="mb-4">
+            @component('components.alert', { type: 'danger', color: 'red' })
+              {{ flashMessage('error') }}
+            @endcomponent
+          </div>
+        @endif
 
-      <h1 class="text-x2 mb-16">Sign In</h1>
+        {{--
+          AdonisJs provides CSRF Protection by default.
+          This mean that we need to send a csrf token for every POST, PUT or DELETE request.
 
-      {{--
-        AdonisJs provides CSRF Protection by default.
-        This mean that we need to send a csrf token for every POST, PUT or DELETE request.
+          ref: http://adonisjs.com/docs/4.1/csrf
+        --}}
+        {{ csrfField() }}
 
-        ref: http://adonisjs.com/docs/4.1/csrf
-      --}}
-      {{ csrfField() }}
+        <div>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">
+            Sign In
+          </h3>
+        </div>
 
-      {{-- Username Field --}}
-      <div class="mb-8">
-        @!component('components.label', { text: 'Username', related: 'username' })
-        @!component('components.input', { name: 'username', value: old('username'), required: true })
-      </div>
+        <div class="mt-6 sm:mt-5">
+          {{-- Username Field --}}
+          <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', { text: 'Username', related: 'username' })
 
-      {{-- Password Field --}}
-      <div class="mb-8">
-        @!component('components.label', text = 'Password', related = 'password')
-        @!component('components.input', name = 'password', type = 'password', required = true)
-      </div>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', { name: 'username', value: old('username'), required: true })
+            </div>
+          </div>
 
-      <button class="bg-brand hover:bg-brand-dark text-white py-2 px-4 rounded">
-        Login
-      </button>
-    </form>
+          {{-- Password Field --}}
+          <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+            @!component('components.label', text = 'Password', related = 'password')
+
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              @!component('components.input', name = 'password', type = 'password', required = true)
+            </div>
+          </div>
+
+          <div class="pt-5 mt-8 border-t border-gray-200">
+            <div class="flex justify-end">
+              <button class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    @endcomponent
   </div>
 @endsection
