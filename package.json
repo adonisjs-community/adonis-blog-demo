@@ -2,13 +2,11 @@
   "name": "adonis-blog-demo",
   "version": "4.0.0",
   "adonis-version": "4.0.0",
-  "description": "AdonisJs Blog Demo Application",
+  "description": "AdonisJS Blog Demo Application",
   "scripts": {
     "start": "node server.js",
     "test": "node ace test --timeout=0",
-    "build": "adonis bundle",
-    "build:dev": "adonis bundle --watch",
-    "build:prod": "adonis bundle --production"
+    "build": "postcss -o public/app.css resources/css/app.css"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -26,11 +24,10 @@
     "@adonisjs/validator": "^5.0.3",
     "@adonisjs/vow": "^1.0.15",
     "@adonisjs/vow-browser": "^1.0.6",
-    "adonis-bundler": "^1.0.1",
     "tailwindcss": "^0.6.1"
   },
   "devDependencies": {
-    "less": "^3.0.4",
+    "postcss-cli": "^7.1.0",
     "sqlite3": "^4.0.1"
   },
   "autoload": {
