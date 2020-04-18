@@ -30,7 +30,7 @@ class PostController {
     return view.render('posts.create')
   }
 
-  async store ({ session, request, response }) {
+  async store ({ auth, session, request, response }) {
     /**
      * Getting needed parameters.
      *
@@ -60,11 +60,13 @@ class PostController {
     }
 
     /**
-     * Creating a new post into the database.
+     * Creating a new post through the logged in user
+     * into the database.
      *
      * ref: http://adonisjs.com/docs/4.1/lucid#_create
      */
-    await Post.create(data)
+    const currentUser = await auth.getUser()
+    await currentUser.posts().create(data)
 
     return response.redirect('/')
   }

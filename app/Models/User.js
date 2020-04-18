@@ -15,6 +15,10 @@ class User extends Model {
      */
     this.addHook('beforeCreate', 'User.hashPassword')
   }
+
+  posts () {
+    return this.hasMany('App/Models/Post')
+  }
 }
 
 module.exports = User
